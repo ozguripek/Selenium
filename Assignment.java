@@ -9,34 +9,32 @@ import org.testng.Assert;
 
 public class Assignment {
 
-		public static void main(String[] args) {
-			
-			System.setProperty("webdriver.chrome.driver","//Users//imac//Documents//Chrome-Driver//chromedriver");
-			
-			WebDriver driver=new ChromeDriver();		
-		
-		String text="Rahul";
-		
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "//Users//imac//Documents//Chrome-Driver//chromedriver");
+
+		WebDriver driver = new ChromeDriver();
+
+		String text = "Rahul";
+
 		System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
-		
-		
-		
+
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-		
+
 		driver.findElement(By.id("name")).sendKeys(text);
-		
+
 		driver.findElement(By.cssSelector("[id='alertbtn']")).click();
-		
-		System.out.println(driver.switchTo().alert().getText());//mesaji yazdirmak icin
-		
+
+		System.out.println(driver.switchTo().alert().getText());// mesaji yazdirmak icin
+
 		driver.switchTo().alert().accept();// acilan pencerede ok ye tiklamak icin
-		
+
 		driver.findElement(By.id("confirmbtn")).click();
-		
+
 		System.out.println(driver.switchTo().alert().getText());
-		
-		driver.switchTo().alert().dismiss();//cancel e tiklamak icin
-		
-		}
+
+		driver.switchTo().alert().dismiss();// cancel e tiklamak icin
+	
+	}
 
 }
