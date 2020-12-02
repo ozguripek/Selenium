@@ -16,7 +16,7 @@ public class Assignment_1 {
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-		//driver.findElements(By.xpath("//div[id='checkbox-example']"));
+		//driver.findElements(By.xpath("//div[@id='checkbox-example']"));
 		
 		List<WebElement> cb= driver.findElements(By.cssSelector("div[id='checkbox-example'] label"));
 		
