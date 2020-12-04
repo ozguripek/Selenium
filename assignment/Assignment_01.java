@@ -14,16 +14,15 @@ public class Assignment_01 {
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver", "//Users//imac//Documents//Chrome-Driver//chromedriver");
 		WebDriver driver = new ChromeDriver();
-
 		driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/");
+		
+		
 		driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
 		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_password']")).sendKeys("test");
 		driver.findElement(By.xpath("//input[@id='ctl00_MainContent_login_button']")).click();
 
 		String str = driver.findElement(By.xpath("//div[@class='login_info']")).getText();
-
 		// Assert.assertEquals(str, "Welcome, Tester!");
-
 		Assert.assertTrue(str.contains("Welcome, Tester!"), "String doesn't exist.");
 
 		driver.findElement(By.linkText("View all orders")).click();
@@ -31,7 +30,9 @@ public class Assignment_01 {
 		WebElement table = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']"));
 		int rowCount = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr")).size();
 		System.out.println("old row :" + rowCount);
-		System.out.println(rowCount);
+		Assert.assertTrue(rowCount>=5,"5 Eleman don't exist.");
+		
+		
 
 		driver.findElement(By.linkText("Order")).click();
 
